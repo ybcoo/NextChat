@@ -52,3 +52,6 @@ app/mcp/mcp_config.json
 
 #task.md
 chatTask.md
+
+# corepack cache (local tooling)
+.corepack/
