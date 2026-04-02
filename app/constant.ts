@@ -1,12 +1,16 @@
-export const OWNER = "ChatGPTNextWeb";
-export const REPO = "ChatGPT-Next-Web";
-export const REPO_URL = `https://github.com/${OWNER}/${REPO}`;
-export const PLUGINS_REPO_URL = `https://github.com/${OWNER}/NextChat-Awesome-Plugins`;
-export const ISSUE_URL = `https://github.com/${OWNER}/${REPO}/issues`;
-export const UPDATE_URL = `${REPO_URL}#keep-updated`;
-export const RELEASE_URL = `${REPO_URL}/releases`;
-export const FETCH_COMMIT_URL = `https://api.github.com/repos/${OWNER}/${REPO}/commits?per_page=1`;
-export const FETCH_TAG_URL = `https://api.github.com/repos/${OWNER}/${REPO}/tags?per_page=1`;
+export const BRAND_NAME = "Xingzhan Chat";
+export const BRAND_SITE_URL = "https://openapi.xingzhan.cloud/";
+export const BRAND_LOGO_URL = `${BRAND_SITE_URL}logo.png`;
+
+export const OWNER = "xingzhan";
+export const REPO = "xingzhan-chat";
+export const REPO_URL = BRAND_SITE_URL;
+export const PLUGINS_REPO_URL = BRAND_SITE_URL;
+export const ISSUE_URL = BRAND_SITE_URL;
+export const UPDATE_URL = BRAND_SITE_URL;
+export const RELEASE_URL = BRAND_SITE_URL;
+export const FETCH_COMMIT_URL = `${BRAND_SITE_URL}api/version/commits?per_page=1`;
+export const FETCH_TAG_URL = `${BRAND_SITE_URL}api/version/tags?per_page=1`;
 export const RUNTIME_CONFIG_DOM = "danger-runtime-config";
 
 export const STABILITY_BASE_URL = "https://api.stability.ai";
@@ -372,7 +376,7 @@ You are an AI assistant with access to system tools. Your role is to help users 
   "params": {
     "name": "write_file",
     "arguments": {
-      "path": "/Users/river/dev/nextchat/test/joke.txt",
+      "path": "/Users/river/dev/xingzhan-chat/test/joke.txt",
       "content": "为什么数学书总是感到忧伤？因为它有太多的问题。"
     }
   }
@@ -385,7 +389,7 @@ You are an AI assistant with access to system tools. Your role is to help users 
    {
       "method": "write_file",
       "params": {
-        "path": "NextChat_Information.txt",
+        "path": "Xingzhan_Information.txt",
         "content": "1"
     }
    }
@@ -929,5 +933,5 @@ export const internalAllowedWebDavEndpoints = [
 
 export const DEFAULT_GA_ID = "G-89WN60ZK2E";
 
-export const SAAS_CHAT_URL = "https://nextchat.club";
-export const SAAS_CHAT_UTM_URL = "https://nextchat.club?utm=github";
+export const SAAS_CHAT_URL = BRAND_SITE_URL;
+export const SAAS_CHAT_UTM_URL = BRAND_SITE_URL;

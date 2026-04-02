@@ -1,4 +1,6 @@
 import {
+  BRAND_LOGO_URL,
+  BRAND_NAME,
   FETCH_COMMIT_URL,
   FETCH_TAG_URL,
   ModelProvider,
@@ -7,7 +9,6 @@ import {
 import { getClientConfig } from "../config/client";
 import { createPersistStore } from "../utils/store";
 import { clientUpdate } from "../utils";
-import ChatGptIcon from "../icons/chatgpt.png";
 import Locale from "../locales";
 import { ClientApi } from "../client/api";
 
@@ -105,9 +106,9 @@ export const useUpdateStore = createPersistStore(
                       if (version === remoteId) {
                         // Show a notification using Tauri
                         window.__TAURI__?.notification.sendNotification({
-                          title: "NextChat",
+                          title: BRAND_NAME,
                           body: `${Locale.Settings.Update.IsLatest}`,
-                          icon: `${ChatGptIcon.src}`,
+                          icon: BRAND_LOGO_URL,
                           sound: "Default",
                         });
                       } else {
@@ -115,9 +116,9 @@ export const useUpdateStore = createPersistStore(
                           Locale.Settings.Update.FoundUpdate(`${remoteId}`);
                         // Show a notification for the new version using Tauri
                         window.__TAURI__?.notification.sendNotification({
-                          title: "NextChat",
+                          title: BRAND_NAME,
                           body: updateMessage,
-                          icon: `${ChatGptIcon.src}`,
+                          icon: BRAND_LOGO_URL,
                           sound: "Default",
                         });
                         clientUpdate();

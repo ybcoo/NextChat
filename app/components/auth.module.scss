@@ -66,6 +66,13 @@
   .auth-logo {
     margin-top: 10vh;
     transform: scale(1.4);
+
+    .auth-logo-image {
+      width: 56px;
+      height: 56px;
+      object-fit: contain;
+      border-radius: 10px;
+    }
   }
 
   .auth-title {

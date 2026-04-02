@@ -149,6 +149,11 @@
   display: inline-flex;
 }
 
+.brand-logo {
+  border-radius: 8px;
+  object-fit: contain;
+}
+
 .sidebar-title-container {
   display: inline-flex;
   flex-direction: column;
@@ -342,6 +347,13 @@
   align-items: center;
   height: 100%;
   width: 100%;
+
+  .loading-logo {
+    width: 56px;
+    height: 56px;
+    border-radius: 12px;
+    object-fit: contain;
+  }
 }
 
 .rtl-screen {

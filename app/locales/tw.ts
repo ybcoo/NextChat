@@ -27,7 +27,7 @@ const tw = {
     Return: "返回",
     SaasTips: "設定太麻煩，想要立即使用",
     TopTips:
-      "🥳 NextChat AI 首發優惠，立刻解鎖 OpenAI o1, GPT-4o, Claude-3.5 等最新的大型語言模型",
+      "🥳 Xingzhan Chat 首發優惠，立刻解鎖 OpenAI o1, GPT-4o, Claude-3.5 等最新的大型語言模型",
   },
   ChatItem: {
     ChatItemCount: (count: number) => `${count} 則對話`,
@@ -58,7 +58,7 @@ const tw = {
     },
     Commands: {
       new: "新建聊天",
-      newm: "從角色範本新建聊天",
+      newm: "從助手新建聊天",
       next: "下一個聊天",
       prev: "上一個聊天",
       clear: "清除上下文",
@@ -73,7 +73,7 @@ const tw = {
         dark: "深色模式",
       },
       Prompt: "快捷指令",
-      Masks: "所有角色範本",
+      Masks: "所有助手",
       Clear: "清除聊天",
       Settings: "對話設定",
       UploadImage: "上傳圖片",
@@ -115,8 +115,8 @@ const tw = {
       SubTitle: "可以匯出 Markdown 文字檔或者 PNG 圖片",
     },
     IncludeContext: {
-      Title: "包含角色範本上下文",
-      SubTitle: "是否在訊息中顯示角色範本上下文",
+      Title: "包含助手上下文",
+      SubTitle: "是否在訊息中顯示助手上下文",
     },
     Steps: {
       Select: "選取",
@@ -246,18 +246,18 @@ const tw = {
 
       LocalState: "本機資料",
       Overview: (overview: any) => {
-        return `${overview.chat} 次對話，${overview.message} 則訊息，${overview.prompt} 條提示詞，${overview.mask} 個角色範本`;
+        return `${overview.chat} 次對話，${overview.message} 則訊息，${overview.prompt} 條提示詞，${overview.mask} 個助手`;
       },
       ImportFailed: "匯入失敗",
     },
     Mask: {
       Splash: {
-        Title: "角色範本啟動頁面",
-        SubTitle: "新增聊天時，呈現角色範本啟動頁面",
+        Title: "助手啟動頁面",
+        SubTitle: "新增聊天時，呈現助手啟動頁面",
       },
       Builtin: {
-        Title: "隱藏內建角色範本",
-        SubTitle: "在所有角色範本列表中隱藏內建角色範本",
+        Title: "隱藏內建助手",
+        SubTitle: "在所有助手列表中隱藏內建助手",
       },
     },
     Prompt: {
@@ -299,10 +299,10 @@ const tw = {
 
     Access: {
       SaasStart: {
-        Title: "使用 NextChat AI",
+        Title: "使用 Xingzhan Chat",
         Label: "(性價比最高的方案)",
         SubTitle:
-          "由 NextChat 官方維護，無須設定開箱即用，支援 OpenAI o1、GPT-4o、Claude-3.5 等最新的大型語言模型",
+          "由 Xingzhan Chat 官方維護，無須設定開箱即用，支援 OpenAI o1、GPT-4o、Claude-3.5 等最新的大型語言模型",
         ChatNow: "立刻開始對話",
       },
 
@@ -456,11 +456,11 @@ const tw = {
   Plugin: { Name: "外掛" },
   FineTuned: { Sysmessage: "你是一個助手" },
   Mask: {
-    Name: "角色範本",
+    Name: "助手",
     Page: {
-      Title: "預設角色角色範本",
-      SubTitle: (count: number) => `${count} 個預設角色定義`,
-      Search: "搜尋角色角色範本",
+      Title: "預設助手",
+      SubTitle: (count: number) => `${count} 個預設助手`,
+      Search: "搜尋助手",
       Create: "新增",
     },
     Item: {
@@ -473,7 +473,7 @@ const tw = {
     },
     EditModal: {
       Title: (readonly: boolean) =>
-        `編輯預設角色範本 ${readonly ? "（唯讀）" : ""}`,
+        `編輯預設助手 ${readonly ? "（唯讀）" : ""}`,
       Download: "下載預設值",
       Clone: "以此預設值建立副本",
     },
@@ -490,8 +490,8 @@ const tw = {
         SubTitle: "隱藏後預設對話不會出現在聊天介面",
       },
       Share: {
-        Title: "分享此角色範本",
-        SubTitle: "產生此角色範本的直達連結",
+        Title: "分享此助手",
+        SubTitle: "產生此助手的直達連結",
         Action: "複製連結",
       },
     },
@@ -516,8 +516,8 @@ const tw = {
     Skip: "跳過",
     NotShow: "不再顯示",
     ConfirmNoShow: "確認停用？停用後可以隨時在設定中重新啟用。",
-    Title: "挑選一個角色範本",
-    SubTitle: "現在開始，與角色範本背後的靈魂思維碰撞",
+    Title: "挑選你的助手",
+    SubTitle: "現在開始，和你的助手開始對話",
     More: "搜尋更多",
   },
   URLCommand: {
@@ -557,3 +557,5 @@ export type PartialLocaleType = DeepPartial<typeof tw>;
 
 export default tw;
 // Translated by @chunkiuuu, feel free the submit new pr if there are typo/incorrect translations :D
+
+

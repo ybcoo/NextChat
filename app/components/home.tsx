@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 
 require("../polyfill");
@@ -5,13 +6,12 @@ require("../polyfill");
 import { useEffect, useState } from "react";
 import styles from "./home.module.scss";
 
-import BotIcon from "../icons/bot.svg";
 import LoadingIcon from "../icons/three-dots.svg";
 
 import { getCSSVar, useMobileScreen } from "../utils";
 
 import dynamic from "next/dynamic";
-import { Path, SlotID } from "../constant";
+import { BRAND_LOGO_URL, BRAND_NAME, Path, SlotID } from "../constant";
 import { ErrorBoundary } from "./error";
 
 import { getISOLang, getLang } from "../locales";
@@ -34,7 +34,13 @@ import { initializeMcpSystem, isMcpEnabled } from "../mcp/actions";
 export function Loading(props: { noLogo?: boolean }) {
   return (
     <div className={clsx("no-dark", styles["loading-content"])}>
-      {!props.noLogo && <BotIcon />}
+      {!props.noLogo && (
+        <img
+          className={styles["loading-logo"]}
+          src={BRAND_LOGO_URL}
+          alt={BRAND_NAME}
+        />
+      )}
       <LoadingIcon />
     </div>
   );
