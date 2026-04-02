@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import React, { Fragment, useEffect, useMemo, useRef, useState } from "react";
 
 import styles from "./home.module.scss";
@@ -5,7 +6,6 @@ import styles from "./home.module.scss";
 import { IconButton } from "./button";
 import SettingsIcon from "../icons/settings.svg";
 import GithubIcon from "../icons/github.svg";
-import ChatGptIcon from "../icons/chatgpt.svg";
 import AddIcon from "../icons/add.svg";
 import DeleteIcon from "../icons/delete.svg";
 import MaskIcon from "../icons/mask.svg";
@@ -18,6 +18,8 @@ import Locale from "../locales";
 import { useAppConfig, useChatStore } from "../store";
 
 import {
+  BRAND_LOGO_URL,
+  BRAND_NAME,
   DEFAULT_SIDEBAR_WIDTH,
   MAX_SIDEBAR_WIDTH,
   MIN_SIDEBAR_WIDTH,
@@ -250,9 +252,17 @@ export function SideBar(props: { className?: string }) {
       {...props}
     >
       <SideBarHeader
-        title="NextChat"
+        title={BRAND_NAME}
         subTitle="Build your own AI assistant."
-        logo={<ChatGptIcon />}
+        logo={
+          <img
+            src={BRAND_LOGO_URL}
+            alt={BRAND_NAME}
+            width={28}
+            height={28}
+            className={styles["brand-logo"]}
+          />
+        }
         shouldNarrow={shouldNarrow}
       >
         <div className={styles["sidebar-header-bar"]}>

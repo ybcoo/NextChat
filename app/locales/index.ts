@@ -169,3 +169,4 @@ export function getSTTLang(): string {
     return DEFAULT_STT_LANG;
   }
 }
+

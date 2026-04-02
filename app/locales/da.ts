@@ -841,3 +841,4 @@ const da: PartialLocaleType = {
 };
 
 export default da;
+

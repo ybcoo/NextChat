@@ -7,13 +7,19 @@ import type { Metadata, Viewport } from "next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { GoogleTagManager, GoogleAnalytics } from "@next/third-parties/google";
 import { getServerSideConfig } from "./config/server";
+import { BRAND_LOGO_URL, BRAND_NAME } from "./constant";
 
 export const metadata: Metadata = {
-  title: "NextChat",
-  description: "Your personal ChatGPT Chat Bot.",
+  title: BRAND_NAME,
+  description: `${BRAND_NAME}, your personal AI assistant.`,
   appleWebApp: {
-    title: "NextChat",
+    title: BRAND_NAME,
     statusBarStyle: "default",
+  },
+  icons: {
+    icon: BRAND_LOGO_URL,
+    apple: BRAND_LOGO_URL,
+    shortcut: BRAND_LOGO_URL,
   },
 };
 
@@ -47,6 +53,8 @@ export default function RootLayout({
           href="/site.webmanifest"
           crossOrigin="use-credentials"
         ></link>
+        <link rel="icon" href={BRAND_LOGO_URL} />
+        <link rel="apple-touch-icon" href={BRAND_LOGO_URL} />
         <script src="/serviceWorkerRegister.js" defer></script>
       </head>
       <body>

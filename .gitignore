@@ -49,3 +49,9 @@ masks.json
 
 # mcp config
 app/mcp/mcp_config.json
+
+#task.md
+chatTask.md
+
+# local tool cache
+.corepack/

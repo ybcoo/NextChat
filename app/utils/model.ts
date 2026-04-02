@@ -73,6 +73,36 @@ export function collectModelTable(
     };
   });
 
+  const createCustomModel = (
+    modelName: string,
+    providerName: string,
+    displayName?: string,
+  ) => {
+    const provider = customProvider(providerName);
+    let customModelName = modelName;
+    let customDisplayName = displayName;
+
+    // swap name and displayName for bytedance
+    if (customDisplayName && provider.providerName === "ByteDance") {
+      [customModelName, customDisplayName] = [customDisplayName, customModelName];
+    }
+
+    const baseKey = `${customModelName}@${provider.id}`;
+    let key = baseKey;
+    let index = 1;
+    while (modelTable[key]) {
+      key = `${baseKey}#custom${index++}`;
+    }
+
+    modelTable[key] = {
+      name: customModelName,
+      displayName: customDisplayName || customModelName,
+      available: true,
+      provider,
+      sorted: CustomSeq.next(key),
+    };
+  };
+
   // server custom models
   customModels
     .split(",")
@@ -91,13 +121,14 @@ export function collectModelTable(
       } else {
         // 1. find model by name, and set available value
         const [customModelName, customProviderName] = getModelProvider(name);
+        const normalizedCustomProviderName = customProviderName?.toLowerCase();
         let count = 0;
         for (const fullName in modelTable) {
           const [modelName, providerName] = getModelProvider(fullName);
           if (
-            customModelName == modelName &&
-            (customProviderName === undefined ||
-              customProviderName === providerName)
+            customModelName === modelName &&
+            (normalizedCustomProviderName === undefined ||
+              normalizedCustomProviderName === providerName?.toLowerCase())
           ) {
             count += 1;
             modelTable[fullName]["available"] = available;
@@ -113,21 +144,17 @@ export function collectModelTable(
         }
         // 2. if model not exists, create new model with available value
         if (count === 0) {
-          let [customModelName, customProviderName] = getModelProvider(name);
-          const provider = customProvider(
+          createCustomModel(
+            customModelName,
             customProviderName || customModelName,
+            displayName,
           );
-          // swap name and displayName for bytedance
-          if (displayName && provider.providerName == "ByteDance") {
-            [customModelName, displayName] = [displayName, customModelName];
-          }
-          modelTable[`${customModelName}@${provider?.id}`] = {
-            name: customModelName,
-            displayName: displayName || customModelName,
-            available,
-            provider, // Use optional chaining
-            sorted: CustomSeq.next(`${customModelName}@${provider?.id}`),
-          };
+        }
+
+        // 3. for user-added duplicate names (without provider), keep a standalone
+        // custom entry instead of being swallowed by built-ins, and place it first.
+        if (available && count > 0 && normalizedCustomProviderName === undefined) {
+          createCustomModel(customModelName, "Custom", displayName);
         }
       }
     });
